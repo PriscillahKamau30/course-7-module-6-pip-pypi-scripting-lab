@@ -4,8 +4,7 @@ import os
 def generate_log(data):
     # STEP 1: Validate input
     if not isinstance(data, list):
-        print("Error: Input must be a list of log entries.")
-        return
+        raise ValueError("Input must be a list of log entries.")  # <-- use ValueError
 
     # STEP 2: Generate a filename with today's date
     filename = f"log_{datetime.now().strftime('%Y%m%d')}.txt"
@@ -21,8 +20,5 @@ def generate_log(data):
 
 # Example usage
 if __name__ == "__main__":
-    # Example log entries
     log_entries = ["User logged in", "User updated profile", "Report exported"]
-    
-    # Call the function
     generate_log(log_entries)
